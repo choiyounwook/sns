@@ -1,0 +1,150 @@
+type User {
+  id: ID!
+  avatar: String
+  username: String!
+  email: String!
+  nickname: String!
+  passwd: String!
+  isFollowing: Boolean!
+  isSelf: Boolean!
+  bio: String
+  following: [User!]!
+  followingCount: Int!
+  followers: [User!]!
+  followersCount: Int!
+  posts: [Post!]!
+  postsCount: Int!
+  likes: [Like!]!
+  comments: [Comment!]!
+  rooms: [Room!]!
+  loginSecret: String!
+  createdAt: String
+  updatedAt: String
+  relChallenger: [Post!]
+  preChallenger: [Post!]
+  nextChallenger: [Post!]
+  tagChallenger: [Post!]
+  favCategory: String
+  confirmEmail: Boolean
+  keyForVerify: String
+}
+
+type Post {
+  id: ID!
+  location: String
+  caption: String!
+  user: User!
+  files: [File!]!
+  likes: [Like!]!
+  relChallenger: [User!]
+  preChallenger: [User!]
+  nextChallenger: [User!]
+  tagChallenger: [User!]
+  nextPosts: [Post!]
+  prePosts: [Post!]
+  hashtags: [Hashtag!]
+  scope: Boolean!
+  comments: [Comment!]!
+  category: String!
+  isLiked: Boolean!
+  likeCount: Int!
+  commentCount: Int!
+  createdAt: String
+  updatedAt: String
+  video: [Video!]
+  image: [Image!]
+  audio: [Audio!]
+  text: [Text!]
+  textContent: String
+  nextPostCount: Int
+  prePostCount: Int
+}
+
+type Like {
+  id: ID!
+  user: User!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  user: User!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type File {
+  id: ID!
+  url: String!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type Room {
+  id: ID!
+  participants: [User!]!
+  messages: [Message!]!
+  createdAt: String
+  updatedAt: String
+}
+
+type Message {
+  id: ID!
+  text: String!
+  from: User!
+  to: User!
+  room: Room!
+  createdAt: String
+  updatedAt: String
+}
+type Video {
+  video_id: ID!
+  video_url: String!
+  createdAt: String
+  post: Post
+  files: [File!]!
+}
+
+type Image {
+  image_id: ID!
+  image_url: String!
+  files: [File!]!
+  post: Post
+  createdAt: String
+}
+
+type Audio {
+  audio_id: ID!
+  audio_url: String!
+  audio_img_url: String!
+  audioFile: [File!]
+  post: Post
+  createdAt: String
+}
+
+type Text {
+  text_id: ID!
+  text_img_url: String!
+  content: String!
+  imageFile: File!
+  post: Post
+  relay: Boolean!
+  createdAt: String
+}
+
+type Category {
+  cat_id: ID!
+  cat_name: String!
+}
+
+type Hashtag {
+  id: ID!
+  tag_name: String!
+  posts: [Post!]!
+  postCount: Int!
+}

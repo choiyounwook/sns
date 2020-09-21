@@ -1,0 +1,16 @@
+type Mutation {
+  uploadChallenge(
+    caption: String
+    category: String
+    files: [String!]!
+    rel_challengers: [String!]
+    pre_challengers: [String!]
+    next_challengers: [String!]
+    tag_challengers: [String]
+    video: [String!]
+    image: [String!]
+    text: [String!]
+    audio: [String!]
+    textContent: String
+  ): Post!
+}

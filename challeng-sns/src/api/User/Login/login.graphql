@@ -1,0 +1,6 @@
+type Mutation {
+  login(
+    email: String!
+    passwd: String!
+  ): String!
+}

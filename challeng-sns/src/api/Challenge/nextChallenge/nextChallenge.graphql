@@ -1,0 +1,3 @@
+type Mutation {
+  nextChallenge(id: String!, pid: String!): [Post!]
+}

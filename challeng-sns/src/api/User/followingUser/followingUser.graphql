@@ -1,0 +1,3 @@
+type Query {
+  followingUser(id: String!,limit: Int,cur: Int): [User!]!
+}
